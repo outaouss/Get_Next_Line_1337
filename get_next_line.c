@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: outaouss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: splinta <splinta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 09:46:03 by outaouss          #+#    #+#             */
-/*   Updated: 2025/12/01 09:46:04 by outaouss         ###   ########.fr       */
+/*   Updated: 2025/12/10 00:57:15 by splinta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,9 @@ char	*ft_read_line(int fd, char *line)
 	char	*buffer;
 	ssize_t	read_bytes;
 
-	buffer = (char *)malloc((long)BUFFER_SIZE + 1);
+	buffer = (char *)malloc((size_t)BUFFER_SIZE + 1);
 	if (!buffer)
-	{
-		printf("here\n");
 		return (NULL);
-	}
 	read_bytes = 1;
 	while (!ft_strchr(line, '\n') && read_bytes > 0)
 	{

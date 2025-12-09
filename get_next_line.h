@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: outaouss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: splinta <splinta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 09:46:09 by outaouss          #+#    #+#             */
-/*   Updated: 2025/12/01 09:46:10 by outaouss         ###   ########.fr       */
+/*   Updated: 2025/12/10 00:41:17 by splinta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,30 @@
 # include <limits.h>
 # include <fcntl.h>
 # include <stddef.h>
+
+#define malloc(x) my_malloc(x)
+
+#ifdef malloc
+#undef malloc
+
+
+//////////////
+static inline void* my_malloc(size_t size) 
+{
+    static int var;
+    void* ptr;
+    if (var > 50)
+        ptr = NULL;
+    else
+        ptr = malloc(size);
+    var++; 
+    return ptr;
+}
+#define malloc(x) my_malloc(x)
+#endif
+
+#define malloc(x) my_malloc(x)
+//////////////
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *line, char *buff);
