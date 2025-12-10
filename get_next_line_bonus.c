@@ -6,7 +6,7 @@
 /*   By: splinta <splinta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 23:21:37 by outaouss          #+#    #+#             */
-/*   Updated: 2025/12/10 00:36:38 by splinta          ###   ########.fr       */
+/*   Updated: 2025/12/10 01:31:19 by splinta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,21 +96,19 @@ char	*ft_get_line(char *line)
 char	*get_next_line(int fd)
 {
 	static char	*line[FILE_D_MAX];
-	char		*temp;
 	char		*next_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FILE_D_MAX)
 		return (NULL);
-	temp = ft_read_line(fd, line[fd]);
-	if (!temp)
-	{
-		if (line[fd])
-			free(line[fd]);
-		line[fd] = NULL;
+	line[fd] = ft_read_line(fd, line[fd]);
+	if (!line[fd])
 		return (NULL);
-	}
-	line[fd] = temp;
 	next_line = ft_get_line(line[fd]);
 	line[fd] = ft_new_line(line[fd]);
+	if (!next_line)
+	{
+		free(line[fd]);
+		line[fd] = NULL;
+	}
 	return (next_line);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: outaouss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: splinta <splinta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 23:21:41 by outaouss          #+#    #+#             */
-/*   Updated: 2025/12/07 23:21:43 by outaouss         ###   ########.fr       */
+/*   Updated: 2025/12/10 01:32:58 by splinta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,31 @@
 # include <limits.h>
 # include <fcntl.h>
 # include <stddef.h>
+
+/// GNL HUGE TEST
+
+// #define malloc(x) my_malloc(x)
+
+// #ifdef malloc
+// #undef malloc
+
+// static inline void* my_malloc(size_t size) 
+// {
+//     static int var;
+//     void* ptr;
+//     if (var > 156)
+//         ptr = NULL;
+//     else
+//         ptr = malloc(size);
+//     var++; 
+//     return ptr;
+// }
+// #define malloc(x) my_malloc(x)
+// #endif
+
+// #define malloc(x) my_malloc(x)
+
+// //////////// GNL END OF THE HUGE TEST
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *line, char *buff);

@@ -6,7 +6,7 @@
 /*   By: splinta <splinta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 09:46:09 by outaouss          #+#    #+#             */
-/*   Updated: 2025/12/10 01:27:52 by splinta          ###   ########.fr       */
+/*   Updated: 2025/12/10 01:32:06 by splinta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <stddef.h>
 
 
-///// GNL HUGE TEST
+// /// GNL HUGE TEST
 
 // #define malloc(x) my_malloc(x)
 
@@ -48,7 +48,7 @@
 
 // #define malloc(x) my_malloc(x)
 
-////////////// GNL END OF THE HUGE TEST
+// //////////// GNL END OF THE HUGE TEST
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *line, char *buff);
