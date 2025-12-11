@@ -6,7 +6,7 @@
 /*   By: splinta <splinta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 23:21:37 by outaouss          #+#    #+#             */
-/*   Updated: 2025/12/11 01:14:12 by splinta          ###   ########.fr       */
+/*   Updated: 2025/12/12 00:42:18 by splinta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,25 @@ char	*ft_read_line(int fd, char *line)
 {
 	char	*buffer;
 	ssize_t	read_bytes;
-
 	buffer = (char *)malloc((size_t)BUFFER_SIZE + 1);
 	if (!buffer)
-	{
-		printf("here\n");
 		return (NULL);
-	}
 	read_bytes = 1;
 	while (!ft_strchr(line, '\n') && read_bytes > 0)
 	{
 		read_bytes = read(fd, buffer, BUFFER_SIZE);
 		if (read_bytes == -1)
-			return (free(buffer), NULL);
+		{
+			free(buffer);
+			return (NULL);
+		}
 		buffer[read_bytes] = '\0';
 		line = ft_strjoin(line, buffer);
+		if (!line)
+		{
+			free(buffer);
+			return (NULL);
+		}
 	}
 	free(buffer);
 	return (line);

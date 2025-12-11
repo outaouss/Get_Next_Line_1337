@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: outaouss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: splinta <splinta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 23:21:51 by outaouss          #+#    #+#             */
-/*   Updated: 2025/12/07 23:21:52 by outaouss         ###   ########.fr       */
+/*   Updated: 2025/12/12 00:43:15 by splinta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	j = 0;
 	new_string = malloc((ft_strlen(s1) + ft_strlen(s2)) + 1);
 	if (!new_string)
-		return (NULL);
+		return (free(s1), NULL);
 	while (s1[i] != '\0')
 	{
 		new_string[i] = s1[i];
