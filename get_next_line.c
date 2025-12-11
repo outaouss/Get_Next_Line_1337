@@ -6,7 +6,7 @@
 /*   By: splinta <splinta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 09:46:03 by outaouss          #+#    #+#             */
-/*   Updated: 2025/12/10 01:17:10 by splinta          ###   ########.fr       */
+/*   Updated: 2025/12/11 01:01:05 by splinta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,3 +110,28 @@ char	*get_next_line(int fd)
 	}
 	return (next_line);
 }
+
+
+/// < ----- OLD ONE [ DOUBLE FREE PROB ] ----- >
+
+// char	*get_next_line(int fd)
+// {
+// 	static char	*line;
+// 	char		*next_line;
+// 	char *inv;
+
+// 	if (fd < 0 || BUFFER_SIZE <= 0)
+// 		return (NULL);
+// 	inv = ft_read_line(fd, line);
+// 	if (!inv)
+// 	{
+// 		if (line)
+// 			free(line);
+// 		line = NULL;
+// 		return (NULL);
+// 	}
+// 	line = inv;
+// 	next_line = ft_get_line(line);
+// 	line = ft_new_line(line);
+// 	return (next_line);
+// }

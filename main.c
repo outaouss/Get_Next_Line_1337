@@ -6,7 +6,7 @@ int main()
 {
     // if (c != 2)
     //     return (1);
-    int fd = open("main.c", 0);
+    int fd = open("test.txt", O_RDONLY);
     if (fd == -1)
         return (2);
     char *s;
@@ -14,6 +14,7 @@ int main()
     {
         printf("%s", s);
         free(s);
+        // break ;
     }
     return (0);
 }
