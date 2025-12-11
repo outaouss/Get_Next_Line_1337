@@ -6,7 +6,7 @@
 /*   By: splinta <splinta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 09:46:09 by outaouss          #+#    #+#             */
-/*   Updated: 2025/12/11 01:00:12 by splinta          ###   ########.fr       */
+/*   Updated: 2025/12/12 00:40:26 by splinta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 // {
 //     static int var;
 //     void* ptr;
-//     if (var > 150)
+//     if (var > 60)
 //         ptr = NULL;
 //     else
 //         ptr = malloc(size);

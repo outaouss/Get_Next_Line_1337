@@ -6,7 +6,7 @@
 /*   By: splinta <splinta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 09:46:03 by outaouss          #+#    #+#             */
-/*   Updated: 2025/12/11 01:01:05 by splinta          ###   ########.fr       */
+/*   Updated: 2025/12/12 00:36:15 by splinta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,16 @@ char	*ft_read_line(int fd, char *line)
 		read_bytes = read(fd, buffer, BUFFER_SIZE);
 		if (read_bytes == -1)
 		{
-			return (free(buffer), NULL);
+			free(buffer);
+			return (NULL);
 		}
 		buffer[read_bytes] = '\0';
 		line = ft_strjoin(line, buffer);
+		if (!line)
+		{
+			free(buffer);
+			return (NULL);
+		}
 	}
 	free(buffer);
 	return (line);
@@ -100,7 +106,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = ft_read_line(fd, line);
 	if (!line)
-		return (NULL);
+		return (free(line), NULL);
 	next_line = ft_get_line(line);
 	line = ft_new_line(line);
 	if (!next_line)

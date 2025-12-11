@@ -6,7 +6,7 @@
 /*   By: splinta <splinta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 15:54:49 by outaouss          #+#    #+#             */
-/*   Updated: 2025/12/10 01:02:58 by splinta          ###   ########.fr       */
+/*   Updated: 2025/12/12 00:34:44 by splinta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,9 @@ char	*ft_strjoin(char *s1, char *s2)
 	i = 0;
 	j = 0;
 	new_string = malloc((ft_strlen(s1) + ft_strlen(s2)) + 1);
+	// new_string = malloc(-1);
 	if (!new_string)
-		return (NULL);
+		return (free(s1), NULL);
 	while (s1[i] != '\0')
 	{
 		new_string[i] = s1[i];
@@ -84,9 +85,6 @@ char	*ft_strjoin(char *s1, char *s2)
 		j++;
 		i++;
 	}
-	// static int f = 1;
-	// printf("[ %d ]", f);
-	// f++;
 	free(s1);
 	new_string[i] = '\0';
 	return (new_string);
